@@ -1,0 +1,68 @@
+import React from 'react';
+import maleImages from '../../assets/img/male.png';
+import femaleImages from '../../assets/img/female.png';
+import mixedImage from '../../assets/img/Rectangle 28.png';
+import { Col, Container, Image, ListGroup, Row } from 'react-bootstrap';
+import { faMale , faFemale, faHourglassStart , faFlag , faFutbol } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Footer from '../Footer/Footer';
+
+const DetailsCard = (props) => {
+    const info = props.leagueInfo;
+    const {dateFirstEvent,strCountry,strSport,strGender,strBanner,strDescriptionEN} = info;
+        const gender = strGender;
+        let imgSrc;
+        if (gender === "Male") {
+              imgSrc= maleImages;
+        }
+        else if (gender === "Female") {
+            imgSrc= femaleImages;
+        }
+        else if(gender === "Mixed") {
+            imgSrc= mixedImage;
+        }
+        
+        const imgStyle = {
+            marginTop : "50px",
+            marginBottom : "50px",
+            textAlign : "center",
+            color : "white"
+        } 
+
+    return (
+        <div>
+            <Container style={imgStyle}>
+                <Image src={strBanner} fluid alt="Wait for loading or image not found, Try Another" />     
+            </Container>
+
+            <Container>
+                    <Row>
+
+                        <Col sm={8}>
+                            <ListGroup>
+                                <ListGroup.Item> <FontAwesomeIcon icon={faHourglassStart} /> Founded: {dateFirstEvent} </ListGroup.Item>
+                                <ListGroup.Item> <FontAwesomeIcon icon={faFlag} /> Country: {strCountry} </ListGroup.Item>
+                                <ListGroup.Item> <FontAwesomeIcon icon={faFutbol} /> Sports type: {strSport} </ListGroup.Item>
+                                <ListGroup.Item> {gender === 'Male' ? <FontAwesomeIcon icon={faMale} /> : <FontAwesomeIcon icon={faFemale} /> }  Gender: {strGender} </ListGroup.Item>
+                            </ListGroup>
+                        </Col>
+
+                        <Col sm={4}>
+                            
+                            <Image src={imgSrc} fluid />
+                            
+                        </Col>
+                    </Row>
+            </Container>
+            <Container style={{color: 'white', padding: '20px'}}>
+                <div>
+                    <h5>Description:</h5>
+                    <p>{strDescriptionEN}</p>
+                </div>
+            </Container>
+            <Footer info={info}></Footer>
+        </div>
+    );
+};
+
+export default DetailsCard;
