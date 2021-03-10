@@ -5,10 +5,9 @@ import youtube from '../../assets/Icon/YouTube.png';
 import { Container, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Footer = (props) => {
+const Footer = () => {
 
-    const info = props.info;
-    const {strFacebook,strTwitter,strYoutube} = info;
+    
     const imgStyle = {
         width: '10%',
         marginRight: '5px'

@@ -3,6 +3,7 @@ import { CardColumns,  Container } from 'react-bootstrap';
 import League from '../League/League';
 
 
+// Fetch data from API First time
 const Home = () => {
 
     const [league, setLeague] = useState([]);

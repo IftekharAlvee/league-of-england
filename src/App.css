@@ -12,6 +12,9 @@
   color: white;
   text-align: center;
   font-size: 70px;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 10px;
   
 }
 .preview{
