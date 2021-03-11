@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import LeagueDetails from './Components/LeagueDetails/LeagueDetails';
 import { Container } from 'react-bootstrap';
+import WrongUrl from './Components/WrongUrl/WrongUrl';
 
 
 
@@ -39,6 +40,9 @@ function App() {
                     </Route>
                     <Route path="/home/:id">
                         <LeagueDetails></LeagueDetails>
+                    </Route>
+                    <Route path="*">
+                        <WrongUrl></WrongUrl>
                     </Route>
                   </Switch>
               </Container>  
